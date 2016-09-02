@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hanh trinh cua mot anh hung js</title>
+</head>
+<body>
+    <script language="javascript">
+        
+        <!--level 1: khoi tao bien -->
+        var level=1;
+        var xp=0;
+        var skillpoints=5;
+       
+        <!--level 2: suc manh tinh toan-cac toan tu co ban-->
+       var strength= 0.6*skillpoints + 0.1*xp;
+        var agility= 0.2*skillpoints + 0.2*xp;
+        var intel= 0.2*skillpoints + 10*level;
+        document.write("strength la: "+strength+", agility la: "+agility+",intel la: "+intel+"/n");
+        <!--level 3: suc manh logic va cac toan tu so sanh-->
+        <!--level 4: lua chon dinh menh - dieu kien re nhanh-->
+        var phancap=prompt("ban muon chon phan cap nao? a:chien binh b:sat thu c:tho san");
+        if(phancap==='a')
+        {
+            alert("cap nhat phan cap anh hung la: chien binh");
+            strength+=10;
+            agility-=10;
+            alert("chien binh rong");
+            document.write("\r sau khi thay doi la: strength:"+strength+", "+agility+", "+intel+"");
+        }
+        else if(phancap==='b')
+        {
+            alert("cap nhat phan cap anh hung la: sat thu");
+            strength-=10;
+            agility+=5;
+            intel+=5;
+            alert("sat thu mau lanh");
+            document.write("sau khi thay doi la: strength:"+strength+", "+agility+", "+intel+"");
+            
+        }
+        else if(phancap==='c')
+        {
+            alert("cap nhat phan cap anh hung la: tho san");
+            strength-=10;
+            intel+=10;
+            alert("tho san thanh pho");
+             document.write("sau khi thay doi la: strength:"+strength+", "+agility+", "+intel+"");
+
+        }
+        else
+        {
+            alert("khong cap nhat va dieu chinh phan cap anh hung");
+        }
+    
+      <!-- level 5: dau truong sinh tu- vong lap-->
+
+      var gameContinuse = 1;
+     while (gameContinuse==1)
+        { //anh hung tan cong
+              var heroHealth = level*100;
+         var dragonHealth = 600;
+        var dragonStr = 100;
+        var dragonAgi = 15;
+        var dragonInt = 80;
+        
+          KiemtraThongso();
+          gameContinuse=prompt("Bạn có muốn tiếp tục  không? Có(1), Không (0)");
+     } 
+
+
+     function KiemtraThongso(){
+       if(dragonHealth >= 0)
+          {
+            var hero_agi= Math.random()*100 < dragonAgi ;
+              if(hero_agi)   
+              {
+                 alert("rong ne don thanh cong");
+              }
+             else
+              {
+                document.write("anh hung danh trung "+agility+"diem ");
+                heroHealth-=agility;
+              }
+        
+              var hero_str= Math.random()*100 < dragonStr;
+              if(hero_str)
+              {
+                alert("rong khong bi sat thuong");
+              }
+             else
+              {
+                document.write("rong bi sat thuong "+strength+" diem");
+                heroHealth-=strength;
+              }
+              var hero_int= Math.random()*100 < dragonInt;
+              if(hero_int)
+              {
+                alert("rong khong bi sat thuong chi mang");
+              }
+             else
+              {
+                document.write("rong bi sat thuong chi mang "+2*strength+" diem");
+                heroHealth-=(2*strength);
+              }
+          }
+         else
+            document.write("rong da het mau. tro choi ket thuc");
+
+            //rong tan cong
+         if(heroHealth >= 0)
+          {
+              var dragon_agi= Math.random()*100 < agility ;
+              if(dragon_agi)   
+              {
+                alert("hero ne don thanh cong");
+              }
+              else
+              {
+                document.write("rong danh trung "+dragonAgi+"diem ");
+                heroHealth-=dragonAgi;
+              }
+              var dragon_str= Math.random()*100 < strength;
+              if(dragon_str)
+              {
+                alert("hero khong bi sat thuong");
+              }
+              else
+              {
+                document.write("hero bi sat thuong "+dragonStr+" diem");
+                heroHealth-=dragonStr;
+              }
+              var dragon_int= Math.random()*100 < intel;
+              if(dragon_int)
+              {
+                alert("hero khong bi sat thuong chi mang");
+              }
+              else
+              {
+                document.write("hero bi sat thuong chi mang "+2*dragonStr+" diem");
+                heroHealth-=2*dragonStr;
+              }
+          }
+         else
+           document.write("hero da het mau. tro choi ket thuc");
+     }
+
+    </script>
+</body>
+</html>
