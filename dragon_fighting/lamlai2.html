@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hanh trinh cua mot anh hung js</title>
+</head>
+<body>
+    <script language="javascript">
+        {/*input: máu rồng ban đầu: 600
+                  máu người chơi: 300
+                  mức xác thương/1 skill của rồng: 40
+                  mức sát thương chí mạng/1 skill: 100
+                  người chơi tùy chọn mức xác thương cho mình sau mỗi skill: (tự nhập mức xác thương)
+         *output:lượng máu còn lại của rồng và người chơi sau mỗi lượt và kết quả của cuộc đấu.       
+
+         *điều kiện sát thương:
+              + nếu mức sát thương nằm trong (-oo,10) thì giảm máu người chơi đi 2 lần mức sát thương chí mạng.
+              + nếu mức sát thương nằm trong (9,40) thì giảm máu người chươi đi bằng mức sát thương.
+              + nếu mức sát thương nằm trong (39,100) thì giảm máu rồng đi 2 lần mức sát thương chí mạng.
+              + nếu mức sát thương nằm trong (100,+oo) thì giảm máu rồng đi 2 lần mức sát thương chí mạng.
+        */}
+      
+        var heroHealth = 300;
+        var dragonHealth = 600;
+        var dragonStr = 40;
+        var dragonInt = 100;
+        var dragonAgi = 15;
+        var heroAgi = 25;
+       var t1,t2;
+        
+        var gameContinuse = 1;
+        
+     while (gameContinuse==1)
+        { 
+       
+          luongmauconlai();
+            alert("luong mau con lai cua rong: "+dragonHealth+"");
+          alert("luong mau con lai cua anh hung: "+heroHealth+"");  
+        
+         
+         
+          if(heroHealth < 0)
+          {
+              alert("game over!");
+             
+               alert("kha nang ne don cua hero:"+t1*heroAgi/100+"%");
+              alert("kha nang ne don cua rong:"+t2*dragonAgi/100+"%");
+               
+          }
+          if(dragonHealth < 0)
+          {
+              alert("hero win");
+              alert("so diem cua hero la:"+heroHealth+"");
+               
+                 alert("kha nang ne don cua hero:"+t1*heroAgi/100+"%");
+              alert("kha nang ne don cua rong:"+t2*dragonAgi/100+"%");
+              
+          }
+           
+       
+          var gameContinuse=prompt("Bạn có muốn tiếp tục không? Có(1), Không (0)");   
+
+           
+       }
+       
+
+
+       function luongmauconlai(){
+       var heroStr= prompt("nhap gia tri sat thuong cho hero:",'');
+      
+        while(1)
+        {
+             
+          if(heroStr < dragonStr && heroStr >=10 )
+             return heroHealth = heroHealth-dragonStr;
+             
+         if(heroStr == dragonStr)
+           return; 
+        if(heroStr > dragonStr && heroStr < dragonInt)
+          return dragonHealth= dragonHealth-heroStr;
+        if(heroStr >= dragonInt)
+          return dragonHealth = dragonHealth-(2*heroStr);
+        if(heroStr < 10)
+         return heroHealth = heroHealth-(2*dragonStr);
+           
+      }
+       }
+       
+
+   
+    </script>
+</body>
+</html>
