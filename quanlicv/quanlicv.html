@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>quan li cong viec</title>
+</head>
+
+<body>
+    <script language="javascript">
+        var continuse = 1; // biến này để kiểm tra vòng lặp
+        var luu = new Array();
+
+        while (continuse == 1) { //NHẬP VÀO DANH SÁCH CÁC CÔNG VIỆC  VÀ HIỂN THỊ CÁC CÔNG VIỆC ĐÓ.
+
+            var cv = new Array();
+            // hổi nảy e để var luu = new Array() => nó sẽ reset mảng luu lại => do anh để nó ở ngoài vòng lặp nên nó mới như vây
+            // jo sửa lại reset ở đây
+            luu = new Array();
+            var n = prompt("nhập số công việc:");
+            for (var i = 0; i < n; i++) {
+                cv[i] = prompt("nhap vao danh sach cong viec thu " + (i + 1) + ":\n"); // THẮC MẮC: KHÔNG XUỐNG DÒNG DC.
+                if (cv[i] != null) {
+                    luu[i] = cv[i];
+
+                } else //THẮC MẮC: NHẤN NÚT HỦY(CÔNG VIỆC I==NULL)  HÀM PROMPT TẠO RA THÌ KHÔNG THOÁT
+                    break;
+                while (cv[i] == "") {
+                    alert("ban phai nhap vao cong viec.");
+                    cv[i] = prompt("nhap vao danh sach cong viec thu" + (i + 1) + ":\n");
+                }
+                //ra khỏi vòng lặp while này thì cv[i] đã có giá trị # ""
+                luu[i] = cv[i]; // lưu cv[i] vào biến luu
+            }
+
+            // document.writeln("" + luu + ""); // THẮC MẮC: DANH SÁCH NẰM TRÊN MỘT DÒNG VÀ NGĂN CÁCH NHAU BỞI DẤU ","
+
+            PrintMyTasks();
+
+            continuse = prompt("Bạn có muốn tiếp tục không? Có(1), Không (0)"); //THẮC MẮC: NHẤN KEY 1 VÀ 0 ĐỀU CHO KẾT QUẢ NHƯ NHAU.
+            // ==> javascript (js) nó phân biệt HOA/thường, nghĩa là biến tên abc khác biến Abc hay aBc  
+            //==> như vậy cái biến Continuse # continuse ở trên
+            //==> với lại 1 biến chỉ dc khai báo bằng cú pháp var, biến continuse đã dc khai báo ở bên trên rồi, thì ko nên khai báo ở dưới này nữa => sai cú pháp
+        }
+
+        //Nhấn Ctrl + K + D để sắp xếp lại source cho đẹp
+
+        // function in công việc ra màn hình
+        function PrintMyTasks() {
+            console.log('total cong viec:', luu.length);
+            document.writeln("<br>");
+            for (i = 0; i < luu.length; i++) {
+                document.writeln(luu[i]);
+                document.writeln("<br>");
+            }
+        }
+    </script>
+</body>
+
+</html>
