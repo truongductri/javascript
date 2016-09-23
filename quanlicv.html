@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>quan li cong viec</title>
+</head>
+<body>
+    <script language="javascript">
+         var continuse=1;
+       while(continuse==1){                    //NHẬP VÀO DANH SÁCH CÁC CÔNG VIỆC  VÀ HIỂN THỊ CÁC CÔNG VIỆC ĐÓ.
+       var luu= new Array();
+        var cv= new Array();
+       var n=prompt("nhập số công việc:");
+       for(var i=0;i<n;i++){    
+         cv[i]=prompt("nhap vao danh sach cong viec thu "+(i+1)+":\n");// THẮC MẮC: KHÔNG XUỐNG DÒNG DC.
+        if( cv[i]!=null){
+       luu[i]=cv[i];
+        
+        }
+        else               //THẮC MẮC: NHẤN NÚT HỦY(CÔNG VIỆC I==NULL)  HÀM PROMPT TẠO RA THÌ KHÔNG THOÁT
+          break;
+
+        if(cv[i]==""){
+         alert("ban phai nhap vao cong viec.");
+        cv[i]=prompt("nhap vao danh sach cong viec thu"+(i+1)+":\n");
+         luu[i]=cv[i];
+          }
+        }
+        
+        document.writeln(""+luu+""); // THẮC MẮC: DANH SÁCH NẰM TRÊN MỘT DÒNG VÀ NGĂN CÁCH NHAU BỞI DẤU ","
+         var Continuse=prompt("Bạn có muốn tiếp tục không? Có(1), Không (0)");      //THẮC MẮC: NHẤN KEY 1 VÀ 0 ĐỀU CHO KẾT QUẢ NHƯ NHAU.
+           
+    }
+    
+
+    </script>
+</body>
+</html>
