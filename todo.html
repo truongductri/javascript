@@ -1,0 +1,39 @@
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="new1.js"></script>
+</head>
+
+<body>
+
+    Nhập vào công việc:
+    <input type="text" name="task" value="" id="txttask"><br><br> Task Done:<input type="checkbox" id="mycheck"><br><br>
+    <input type="button" name="luu" value="Save" onclick="taskManager.Print()"><br><br>
+    <button type="button" onclick="AddJob()">Add</button><br><br>
+    <button type="button" onclick="editTask()">Edit</button><br><br>
+    <button type="button" onclick="delTask()">Delete</button><br><br>
+    <input type="button" onclick="totaltask()" value="All job list">
+
+
+    <p>
+        <fieldset>
+            <legend> Danh sách công việc</legend>
+            <div id="listtask">
+
+
+            </div>
+        </fieldset>
+    </p>
+    <br><br>
+    <p>
+        <div id="myjob">
+
+        </div>
+    </p>
+</body>
+
+</html>
