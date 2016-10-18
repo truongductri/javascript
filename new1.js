@@ -1,5 +1,5 @@
 
- 
+
 
 // khia bao doi quan ly todo
 var taskManager = {
@@ -7,19 +7,18 @@ var taskManager = {
     ListTask: new Array(),
 
     // method add 1 cong viec vao danh sach cong viec hien tai
-    Add: function (name,status) {
+    Add: function (name, status) {
         var taskToAdd = {
             name: name,
-            id:  this.ListTask.length,
+            id: this.ListTask.length,
             status: status,
         };
-        
-       
+
+
 
         this.ListTask.push(taskToAdd);
 
 
-          taskManager.Print();
 
     },
     //filter de lay name trong ListTask de so sanh(tim kiem)=>..
@@ -44,14 +43,14 @@ var taskManager = {
     },
 
     // function Del(names)  -> Del('abc')
-    Del: function (id ) {
+    Del: function (id) {
 
-        console.log('id:'+id);
+        console.log('id:' + id);
 
-         
-      //  console.log('i='+i);
+
+        //  console.log('i='+i);
         this.ListTask.splice(this.GetIndex(id), 1);
-        this.Print();
+
     },
 
 
@@ -93,31 +92,31 @@ var taskManager = {
 
 // them cong viec vao danh sach
 function AddJob() {
-  /*  //var a = new Array();
-    //ListTask: a, b, c
-    //textbox: dang
-    console.log('start');
-    console.log('t=' +taskManager.ListTask);
-    console.log('length:'+ taskManager.ListTask.length);
-    for (var i = 0; i < taskManager.ListTask.length; i++) {
-        console.log('i=' +i);
-        
-        a = document.getElementById("txttask").value; //
-        taskManager.Add(a, i);
-
-
-    }
-    console.log('end');
-
-    //Listask: a, b, c, dang,dang,dang
-    */
+    /*  //var a = new Array();
+      //ListTask: a, b, c
+      //textbox: dang
+      console.log('start');
+      console.log('t=' +taskManager.ListTask);
+      console.log('length:'+ taskManager.ListTask.length);
+      for (var i = 0; i < taskManager.ListTask.length; i++) {
+          console.log('i=' +i);
+          
+          a = document.getElementById("txttask").value; //
+          taskManager.Add(a, i);
+  
+  
+      }
+      console.log('end');
+  
+      //Listask: a, b, c, dang,dang,dang
+      */
     var a = document.getElementById('txttask').value;
     var tt = '';
-if (document.getElementById("mycheck").checked === false)
-            tt = 'NEW';
-        if (document.getElementById("mycheck").checked === true)
-            tt = 'DONE';
-    taskManager.Add(a,tt);
+    if (document.getElementById("mycheck").checked === false)
+        tt = 'NEW';
+    if (document.getElementById("mycheck").checked === true)
+        tt = 'DONE';
+    taskManager.Add(a, tt);
 
 
 }
@@ -132,7 +131,8 @@ function buildArrToText(mangCv) {
     for (var i = 0; i < mangCv.length; i++) {
 
         str += `${mangCv[i].name} - ${mangCv[i].status} <button onclick = "taskManager.Del('${mangCv[i].id}')" > Delete </button>
-        <button onclick="taskManager.Edit('${mangCv[i].id}')" > Edit </button> <button onclick="doneTask('${mangCv[i].id}')" > Done </button></br></br>`;
+        <button onclick="taskManager.Edit('${mangCv[i].id}')" > Edit </button> <button onclick="doneTask('${mangCv[i].id}')" > Done </button>
+        <button onclick="insert('${mangCv[i].id}')" >Insert </button></br></br>`;
         // cái này dùng string template, nằm trong dấu `` ( là dấu gần số 1 trên bàn phím á)
         // ${mangCv[i].name} -> in ra gí trị cảu biến
         // "delTask('${mangCv[i].name}')" -> in ra: "delTask('congviec 1')"
@@ -157,8 +157,21 @@ function buildArrToText(mangCv) {
 function doneTask(id) {
     var i = taskManager.GetIndex(id);
     taskManager.ListTask[i].status = 'DONE';
-    taskManager.Print();
+
 
 }
+
+/*function insert(id) {
+    var tam = taskManager.GetIndex(id);
+
+    for (i = 0; i < taskManager.ListTask.length + 1; i++) {
+        taskManager.ListTask[i++] = taskManager.ListTask[i];
+        taskManager.ListTask[i++].id = taskManager.ListTask[i].id;
+
+    }
+    taskManager.ListTask[tam] = AddJob();
+
+
+}*/
 
 
